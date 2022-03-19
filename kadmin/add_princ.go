@@ -13,28 +13,68 @@ type AddPrincipalType struct {
 	clearpolicy int    // Prevents any policy from being assigned when -policy is not specified.
 
 	password     string
-	maxrenewlife string // The maximum renewable life of tickets for the principal.
-	principal    string // Principal name.
-	attributes   string // Attribute list, visit https://web.mit.edu/kerberos/krb5-1.12/doc/admin/admin_commands/kadmin_local.html for more information.
+	maxrenewlife string                 // The maximum renewable life of tickets for the principal.
+	principal    string                 // Principal name.
+	attributes   AddPrincipalAttributes // Attribute list, visit https://web.mit.edu/kerberos/krb5-1.12/doc/admin/admin_commands/kadmin_local.html for more information.
 }
+
+// Attributes holder for the different options provided by Kerberos MIT.
+type AddPrincipalAttributes struct {
+	allow_postdated   int // -allow_postdated prohibits this principal from obtaining postdated tickets. +allow_postdated clears this flag.
+	allow_forwardable int // -allow_forwardable prohibits this principal from obtaining forwardable tickets. +allow_forwardable clears this flag.
+	allow_renewable   int // -allow_renewable prohibits this principal from obtaining renewable tickets. +allow_renewable clears this flag.
+	allow_proxiable   int // -allow_proxiable prohibits this principal from obtaining proxiable tickets. +allow_proxiable clears this flag.
+	allow_dup_key     int // -allow_dup_skey disables user-to-user authentication for this principal by prohibiting this principal from obtaining a session key for another user. +allow_dup_skey clears this flag.
+	requires_preauth  int // +requires_preauth requires this principal to preauthenticate before being allowed to kinit. -requires_preauth clears this flag. When +requires_preauth is set on a service principal, the KDC will only issue service tickets for that service principal if the client’s initial authentication was performed using preauthentication.
+	requires_hwauth   int // +requires_hwauth requires this principal to preauthenticate using a hardware device before being allowed to kinit. -requires_hwauth clears this flag. When +requires_hwauth is set on a service principal, the KDC will only issue service tickets for that service principal if the client’s initial authentication was performed using a hardware device to preauthenticate.
+	ok_as_delegate    int // +ok_as_delegate sets the okay as delegate flag on tickets issued with this principal as the service. Clients may use this flag as a hint that credentials should be delegated when authenticating to the service. -ok_as_delegate clears this flag.
+	allow_svr         int // -allow_svr prohibits the issuance of service tickets for this principal. +allow_svr clears this flag.
+
+	allow_tgs_req int // -allow_tgs_req specifies that a Ticket-Granting Service (TGS) request for a service ticket for this principal is not permitted. +allow_tgs_req clears this flag.
+	allow_tix     int // -allow_tix forbids the issuance of any tickets for this principal. +allow_tix clears this flag.
+
+	needchange                int // +needchange forces a password change on the next initial authentication to this principal. -needchange clears this flag.
+	password_changing_service int // +password_changing_service marks this principal as a password change service principal.
+
+	ok_to_auth_as_delegate int // +ok_to_auth_as_delegate allows this principal to acquire forwardable tickets to itself from arbitrary users, for use with constrained delegation.
+	no_auth_data_required  int // +no_auth_data_required prevents PAC or AD-SIGNEDPATH data from being added to service tickets for the principal.
+}
+
+var IntToSymbolMap = map[int]string{0: "-", 1: "+"}
 
 /*
 Instantiate a new Add_Principal command runner
 */
 func AddPrincipal() *AddPrincipalType {
 	return &AddPrincipalType{
-		randkey:      0,
-		nokey:        0,
+		randkey:      -1,
+		nokey:        -1,
 		expdate:      "",
 		pwexpdate:    "",
 		maxlife:      "",
 		kvno:         -1,
 		policy:       "",
-		clearpolicy:  0,
+		clearpolicy:  -1,
 		password:     "",
 		maxrenewlife: "",
 		principal:    "",
-		attributes:   "",
+		attributes: AddPrincipalAttributes{
+			allow_postdated:           -1,
+			allow_forwardable:         -1,
+			allow_renewable:           -1,
+			allow_proxiable:           -1,
+			allow_dup_key:             -1,
+			requires_preauth:          -1,
+			requires_hwauth:           -1,
+			ok_as_delegate:            -1,
+			allow_svr:                 -1,
+			allow_tgs_req:             -1,
+			allow_tix:                 -1,
+			needchange:                -1,
+			password_changing_service: -1,
+			ok_to_auth_as_delegate:    -1,
+			no_auth_data_required:     -1,
+		},
 	}
 }
 
@@ -83,9 +123,6 @@ func (apt *AddPrincipalType) WithPassword(pw string) *AddPrincipalType {
 func (apt *AddPrincipalType) WithPrincipal(name string) *AddPrincipalType {
 	apt.principal = name
 	return apt
-}
-func (apt *AddPrincipalType) AllowPostdated() *AddPrincipalType {
-
 }
 
 func (apt *AddPrincipalType) sanitizeAttributes() *AddPrincipalType {
