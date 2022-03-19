@@ -4,6 +4,13 @@ Included commands are:
 * ktutil (WiP)
 * ktadmin (WiP)
 
+# Example
+
+<div align="center">
+
+![Image](assets/work-example.png)
+</div>
+
 ## Functionalities
 | ktutil | kadmin |
 | --- | --- |

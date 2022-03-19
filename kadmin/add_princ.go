@@ -3,6 +3,7 @@ package ktadmin
 import (
 	"fmt"
 	"log"
+	"os/exec"
 )
 
 type Executable interface {
@@ -71,11 +72,14 @@ func AddPrincipal(atts AddPrincipalAttributes) *AddPrincipalType {
 	}
 }
 
-func (apt *AddPrincipalType) ParseCommand() {
+func (apt *AddPrincipalType) ParseCommand() *AddPrincipalType {
 	fmt.Println("Parsed Command")
+	return apt
 }
-func (apt *AddPrincipalType) Exec() {
+func (apt *AddPrincipalType) Exec() *exec.Cmd {
+
 	fmt.Println("Execution ...")
+	return exec.Command("ls")
 }
 func (apt *AddPrincipalType) WithAttributes(atts AddPrincipalAttributes) *AddPrincipalType {
 	apt.attributes = atts

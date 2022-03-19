@@ -13,12 +13,13 @@ func main() {
 
 	atts := kadmin.CreateAddPrincipalAttributes().SetDupKey(0)
 	addP := kadmin.AddPrincipal(*atts).
-		WithPrincipal("oussema").
-		WithExpDate("12/06/1999").
+		WithPrincipal("Mellywins").
+		WithExpDate("10 hours").
 		WithKvno(0).
-		WithPassword("oussema1999").
+		WithPassword("#!a2==!QsfK").
 		WithClearPolicy().
 		ParseCommand().
 		Exec()
+	fmt.Print(addP)
 
 }
