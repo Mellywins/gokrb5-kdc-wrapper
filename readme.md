@@ -4,8 +4,8 @@ Included commands are:
 * ktutil (WiP)
 * ktadmin (WiP)
 
-## Functinoalities
-| Ktutil | Ktadmin |
+## Functionalities
+| ktutil | kadmin |
 | --- | --- |
 | add_principal :hammer: | read_kt :x: |
 | delete_principal :x:  | write_kt :x:  |
