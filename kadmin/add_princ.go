@@ -21,10 +21,11 @@ type AddPrincipalType struct {
 	policy      string // The password policy used by this principal. If not specified, the policy default is used if it exists (unless -clearpolicy is specified).
 	clearpolicy int    // Prevents any policy from being assigned when -policy is not specified.
 
-	password     string
-	maxrenewlife string                 // The maximum renewable life of tickets for the principal.
-	principal    string                 // Principal name.
-	attributes   AddPrincipalAttributes // Attribute list, visit https://web.mit.edu/kerberos/krb5-1.12/doc/admin/admin_commands/kadmin_local.html for more information.
+	password      string
+	maxrenewlife  string                 // The maximum renewable life of tickets for the principal.
+	principal     string                 // Principal name.
+	CommandString string                 // String containing the commands progressively built with the available Builders
+	attributes    AddPrincipalAttributes // Attribute list, visit https://web.mit.edu/kerberos/krb5-1.12/doc/admin/admin_commands/kadmin_local.html for more information.
 }
 
 // Attributes holder for the different options provided by Kerberos MIT.
@@ -45,8 +46,10 @@ type AddPrincipalAttributes struct {
 	needchange                int // +needchange forces a password change on the next initial authentication to this principal. -needchange clears this flag.
 	password_changing_service int // +password_changing_service marks this principal as a password change service principal.
 
-	ok_to_auth_as_delegate int // +ok_to_auth_as_delegate allows this principal to acquire forwardable tickets to itself from arbitrary users, for use with constrained delegation.
-	no_auth_data_required  int // +no_auth_data_required prevents PAC or AD-SIGNEDPATH data from being added to service tickets for the principal.
+	ok_to_auth_as_delegate int    // +ok_to_auth_as_delegate allows this principal to acquire forwardable tickets to itself from arbitrary users, for use with constrained delegation.
+	no_auth_data_required  int    // +no_auth_data_required prevents PAC or AD-SIGNEDPATH data from being added to service tickets for the principal.
+	CommandString          string // String containing the commands progressively built with the available Builders
+
 }
 
 var IntToSymbolMap = map[int]string{0: "-", 1: "+"}
@@ -57,23 +60,24 @@ Not setting a flag to a value of your chooseing implies that the KDC command wil
 */
 func AddPrincipal(atts AddPrincipalAttributes) *AddPrincipalType {
 	return &AddPrincipalType{
-		randkey:      -1,
-		nokey:        -1,
-		expdate:      "",
-		pwexpdate:    "",
-		maxlife:      "",
-		kvno:         -1,
-		policy:       "",
-		clearpolicy:  -1,
-		password:     "",
-		maxrenewlife: "",
-		principal:    "",
-		attributes:   atts,
+		randkey:       -1,
+		nokey:         -1,
+		expdate:       "",
+		pwexpdate:     "",
+		maxlife:       "",
+		kvno:          -1,
+		policy:        "",
+		clearpolicy:   -1,
+		password:      "",
+		maxrenewlife:  "",
+		principal:     "",
+		CommandString: "",
+		attributes:    atts,
 	}
 }
 
 func (apt *AddPrincipalType) ParseCommand() *AddPrincipalType {
-	fmt.Println("Parsed Command")
+	fmt.Printf("Parsed Command: kadmin.local add_principal %s %s ", apt.CommandString, apt.principal)
 	return apt
 }
 func (apt *AddPrincipalType) Exec() *exec.Cmd {
@@ -85,27 +89,46 @@ func (apt *AddPrincipalType) WithAttributes(atts AddPrincipalAttributes) *AddPri
 	apt.attributes = atts
 	return apt
 }
+
+// (getdate time string) The expiration date of the principal.
+
 func (apt *AddPrincipalType) WithExpDate(date string) *AddPrincipalType {
 	apt.expdate = date
+	apt.CommandString += " -expire " + date
 	return apt
 }
+
+// (getdate time string) The password expiration date.
+
 func (apt *AddPrincipalType) WithPwExpDate(date string) *AddPrincipalType {
 	apt.pwexpdate = date
+	apt.CommandString += " -pwexpire " + date
 	return apt
 }
+
+// The initial key version number.
+
 func (apt *AddPrincipalType) WithKvno(kvno int) *AddPrincipalType {
 	apt.kvno = kvno
+	apt.CommandString += " -kvno " + fmt.Sprint(kvno)
 	return apt
 }
+
+// The password policy used by this principal. If not specified, the policy default is used if it exists (unless -clearpolicy is specified).
 func (apt *AddPrincipalType) WithPolicy(policy string) *AddPrincipalType {
 	apt.policy = policy
+	apt.CommandString += " -policy " + policy
 	return apt
 }
+
+// Sets the key of the principal to a random value.
+
 func (apt *AddPrincipalType) WithRandKey() *AddPrincipalType {
 	if apt.nokey == 1 {
 		log.Fatal("Cannot Use RANDKEY while NOKEY flag is previously specified")
 	}
 	apt.randkey = 1
+	apt.CommandString += " -randkey "
 	return apt
 }
 func (apt *AddPrincipalType) WithNoKey() *AddPrincipalType {
@@ -113,18 +136,30 @@ func (apt *AddPrincipalType) WithNoKey() *AddPrincipalType {
 		log.Fatal("Cannot use NoKEY flag while RANDKEY flag is previously specified")
 	}
 	apt.nokey = 1
+	apt.CommandString += " -nokey "
 	return apt
 }
+
+// (getdate time string) The maximum renewable life of tickets for the principal.
+
 func (apt *AddPrincipalType) WithMaxLife(max_life_date string) *AddPrincipalType {
 	apt.maxlife = max_life_date
+	apt.CommandString += " -maxrenewlife " + max_life_date
 	return apt
 }
+
+// Prevents any policy from being assigned when -policy is not specified.
+
 func (apt *AddPrincipalType) WithClearPolicy() *AddPrincipalType {
 	apt.clearpolicy = 1
+	apt.CommandString += " -clearpolicy "
 	return apt
 }
+
+// Sets the password of the principal to the specified string and does not prompt for a password. Note: using this option in a shell script may expose the password to other users on the system via the process list.
 func (apt *AddPrincipalType) WithPassword(pw string) *AddPrincipalType {
 	apt.password = pw
+	apt.CommandString += " -pw " + pw
 	return apt
 }
 func (apt *AddPrincipalType) WithPrincipal(name string) *AddPrincipalType {
