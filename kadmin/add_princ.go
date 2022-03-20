@@ -1,4 +1,4 @@
-package ktadmin
+package kadmin
 
 import (
 	"fmt"

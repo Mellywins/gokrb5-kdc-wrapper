@@ -1,7 +1,7 @@
 package main
 
 import (
-	kadmin "github.com/Mellywins/gokrb5-kdc-wrapper/kadmin"
+	"github.com/Mellywins/gokrb5-kdc-wrapper/kadmin"
 )
 
 func main() {
