@@ -1,6 +1,8 @@
 package kadmin
 
 import (
+	"os/exec"
+
 	"github.com/Mellywins/gokrb5-kdc-wrapper/internal/types"
 )
 
@@ -45,4 +47,9 @@ func (ex *KadminExecutorSpec) UseLocal() *KadminExecutorSpec {
 // TODO
 func (ex *KadminExecutorSpec) ProbeLiveness() *KadminExecutorSpec {
 	return ex
+}
+
+// TODO
+func (ex *KadminExecutorSpec) Execute(query types.Query) *exec.Cmd {
+	return exec.Command("test")
 }
