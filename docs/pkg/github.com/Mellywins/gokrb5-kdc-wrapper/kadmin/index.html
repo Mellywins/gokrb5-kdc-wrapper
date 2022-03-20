@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>ktadmin - Go Documentation Server</title>
+
+<link type="text/css" rel="stylesheet" href="../../../../../lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="../../../../../lib/godoc/jquery.js" defer></script>
+
+
+
+<script>var goVersion = "go1.17.8";</script>
+<script src="../../../../../lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="http://localhost:6060/pkg/">Go Documentation Server</a></div>
+<div class="top-heading" id="heading-narrow"><a href="http://localhost:6060/pkg/">GoDoc</a></div>
+<a href="index.html#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+<form method="GET" action="http://localhost:6060/search">
+<div id="menu">
+
+<span class="search-box"><input type="search" id="search" name="q" placeholder="Search" aria-label="Search" required><button type="submit"><span><!-- magnifying glass: --><svg width="24" height="24" viewBox="0 0 24 24"><title>submit search</title><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M0 0h24v24H0z" fill="none"/></svg></span></button></span>
+</div>
+</form>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package ktadmin
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/Mellywins/gokrb5-kdc-wrapper/kadmin"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="index.html#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="index.html#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+				<dd><a href="index.html#pkg-variables">Variables</a></dd>
+			
+			
+			
+				
+				<dd><a href="index.html#AddPrincipalAttributes">type AddPrincipalAttributes</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#CreateAddPrincipalAttributes">func CreateAddPrincipalAttributes() *AddPrincipalAttributes</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#AddPrincipalAttributes.SetDupKey">func (apatts *AddPrincipalAttributes) SetDupKey(n int) *AddPrincipalAttributes</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#AddPrincipalAttributes.SetForwardable">func (apatts *AddPrincipalAttributes) SetForwardable(n int) *AddPrincipalAttributes</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#AddPrincipalAttributes.SetHwAuth">func (apatts *AddPrincipalAttributes) SetHwAuth(n int) *AddPrincipalAttributes</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#AddPrincipalAttributes.SetNeedChange">func (apatts *AddPrincipalAttributes) SetNeedChange(n int) *AddPrincipalAttributes</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#AddPrincipalAttributes.SetNoAuthDataRequired">func (apatts *AddPrincipalAttributes) SetNoAuthDataRequired() *AddPrincipalAttributes</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#AddPrincipalAttributes.SetOkAsDelegate">func (apatts *AddPrincipalAttributes) SetOkAsDelegate(n int) *AddPrincipalAttributes</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#AddPrincipalAttributes.SetOkToAuthAsDelegate">func (apatts *AddPrincipalAttributes) SetOkToAuthAsDelegate() *AddPrincipalAttributes</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#AddPrincipalAttributes.SetPasswordChangingService">func (apatts *AddPrincipalAttributes) SetPasswordChangingService() *AddPrincipalAttributes</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#AddPrincipalAttributes.SetPostdated">func (apatts *AddPrincipalAttributes) SetPostdated(n int) *AddPrincipalAttributes</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#AddPrincipalAttributes.SetPreAuth">func (apatts *AddPrincipalAttributes) SetPreAuth(n int) *AddPrincipalAttributes</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#AddPrincipalAttributes.SetProxiable">func (apatts *AddPrincipalAttributes) SetProxiable(n int) *AddPrincipalAttributes</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#AddPrincipalAttributes.SetRenewable">func (apatts *AddPrincipalAttributes) SetRenewable(n int) *AddPrincipalAttributes</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#AddPrincipalAttributes.SetSvr">func (apatts *AddPrincipalAttributes) SetSvr(n int) *AddPrincipalAttributes</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#AddPrincipalAttributes.SetTgsReq">func (apatts *AddPrincipalAttributes) SetTgsReq(n int) *AddPrincipalAttributes</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#AddPrincipalAttributes.SetTix">func (apatts *AddPrincipalAttributes) SetTix(n int) *AddPrincipalAttributes</a></dd>
+				
+			
+				
+				<dd><a href="index.html#AddPrincipalType">type AddPrincipalType</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#AddPrincipal">func AddPrincipal(atts AddPrincipalAttributes) *AddPrincipalType</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#AddPrincipalType.Exec">func (apt *AddPrincipalType) Exec() *exec.Cmd</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#AddPrincipalType.ParseCommand">func (apt *AddPrincipalType) ParseCommand() *AddPrincipalType</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#AddPrincipalType.WithAttributes">func (apt *AddPrincipalType) WithAttributes(atts AddPrincipalAttributes) *AddPrincipalType</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#AddPrincipalType.WithClearPolicy">func (apt *AddPrincipalType) WithClearPolicy() *AddPrincipalType</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#AddPrincipalType.WithExpDate">func (apt *AddPrincipalType) WithExpDate(date string) *AddPrincipalType</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#AddPrincipalType.WithKvno">func (apt *AddPrincipalType) WithKvno(kvno int) *AddPrincipalType</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#AddPrincipalType.WithMaxLife">func (apt *AddPrincipalType) WithMaxLife(max_life_date string) *AddPrincipalType</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#AddPrincipalType.WithNoKey">func (apt *AddPrincipalType) WithNoKey() *AddPrincipalType</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#AddPrincipalType.WithPassword">func (apt *AddPrincipalType) WithPassword(pw string) *AddPrincipalType</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#AddPrincipalType.WithPolicy">func (apt *AddPrincipalType) WithPolicy(policy string) *AddPrincipalType</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#AddPrincipalType.WithPrincipal">func (apt *AddPrincipalType) WithPrincipal(name string) *AddPrincipalType</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#AddPrincipalType.WithPwExpDate">func (apt *AddPrincipalType) WithPwExpDate(date string) *AddPrincipalType</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#AddPrincipalType.WithRandKey">func (apt *AddPrincipalType) WithRandKey() *AddPrincipalType</a></dd>
+				
+			
+				
+				<dd><a href="index.html#Executable">type Executable</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#KtadminExecutorSpec">type KtadminExecutorSpec</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#KtadminExecutorSpec.UseLocal">func (ex *KtadminExecutorSpec) UseLocal()</a></dd>
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="http://localhost:6060/src/github.com/Mellywins/gokrb5-kdc-wrapper/kadmin/add_princ.go">add_princ.go</a>
+			
+				<a href="http://localhost:6060/src/github.com/Mellywins/gokrb5-kdc-wrapper/kadmin/ktadmin.go">ktadmin.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+			<h2 id="pkg-variables">Variables</h2>
+			
+				
+				<pre>var <span id="IntToSymbolMap">IntToSymbolMap</span> = map[<a href="http://localhost:6060/pkg/builtin/#int">int</a>]<a href="http://localhost:6060/pkg/builtin/#string">string</a>{0: &#34;-&#34;, 1: &#34;+&#34;}</pre>
+			
+		
+		
+		
+			
+			
+			<h2 id="AddPrincipalAttributes">type <a href="http://localhost:6060/src/github.com/Mellywins/gokrb5-kdc-wrapper/kadmin/add_princ.go?s=1253:4104#L21">AddPrincipalAttributes</a>
+				<a class="permalink" href="index.html#AddPrincipalAttributes">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+Attributes holder for the different options provided by Kerberos MIT.
+</p>
+
+			<pre>type AddPrincipalAttributes struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="CreateAddPrincipalAttributes">func <a href="http://localhost:6060/src/github.com/Mellywins/gokrb5-kdc-wrapper/kadmin/add_princ.go?s=10836:10895#L219">CreateAddPrincipalAttributes</a>
+					<a class="permalink" href="index.html#CreateAddPrincipalAttributes">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func CreateAddPrincipalAttributes() *<a href="index.html#AddPrincipalAttributes">AddPrincipalAttributes</a></pre>
+				
+				
+				
+			
+
+			
+				
+				<h3 id="AddPrincipalAttributes.SetDupKey">func (*AddPrincipalAttributes) <a href="http://localhost:6060/src/github.com/Mellywins/gokrb5-kdc-wrapper/kadmin/add_princ.go?s=7562:7640#L155">SetDupKey</a>
+					<a class="permalink" href="index.html#AddPrincipalAttributes.SetDupKey">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (apatts *<a href="index.html#AddPrincipalAttributes">AddPrincipalAttributes</a>) SetDupKey(n <a href="http://localhost:6060/pkg/builtin/#int">int</a>) *<a href="index.html#AddPrincipalAttributes">AddPrincipalAttributes</a></pre>
+				<p>
+-allow_dup_skey(0) disables user-to-user authentication for this principal by prohibiting this principal from obtaining a session key for another user. +allow_dup_skey (1) clears this flag.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="AddPrincipalAttributes.SetForwardable">func (*AddPrincipalAttributes) <a href="http://localhost:6060/src/github.com/Mellywins/gokrb5-kdc-wrapper/kadmin/add_princ.go?s=6735:6818#L137">SetForwardable</a>
+					<a class="permalink" href="index.html#AddPrincipalAttributes.SetForwardable">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (apatts *<a href="index.html#AddPrincipalAttributes">AddPrincipalAttributes</a>) SetForwardable(n <a href="http://localhost:6060/pkg/builtin/#int">int</a>) *<a href="index.html#AddPrincipalAttributes">AddPrincipalAttributes</a></pre>
+				<p>
+-allow_forwardable(0) prohibits this principal from obtaining forwardable tickets. +allow_forwardable (1) clears this flag.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="AddPrincipalAttributes.SetHwAuth">func (*AddPrincipalAttributes) <a href="http://localhost:6060/src/github.com/Mellywins/gokrb5-kdc-wrapper/kadmin/add_princ.go?s=8532:8610#L167">SetHwAuth</a>
+					<a class="permalink" href="index.html#AddPrincipalAttributes.SetHwAuth">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (apatts *<a href="index.html#AddPrincipalAttributes">AddPrincipalAttributes</a>) SetHwAuth(n <a href="http://localhost:6060/pkg/builtin/#int">int</a>) *<a href="index.html#AddPrincipalAttributes">AddPrincipalAttributes</a></pre>
+				<p>
++requires_hwauth(1) requires this principal to preauthenticate using a hardware device before being allowed to kinit. -requires_hwauth(0) clears this flag. When +requires_hwauth is set on a service principal, the KDC will only issue service tickets for that service principal if the client’s initial authentication was performed using a hardware device to preauthenticate.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="AddPrincipalAttributes.SetNeedChange">func (*AddPrincipalAttributes) <a href="http://localhost:6060/src/github.com/Mellywins/gokrb5-kdc-wrapper/kadmin/add_princ.go?s=9922:10004#L197">SetNeedChange</a>
+					<a class="permalink" href="index.html#AddPrincipalAttributes.SetNeedChange">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (apatts *<a href="index.html#AddPrincipalAttributes">AddPrincipalAttributes</a>) SetNeedChange(n <a href="http://localhost:6060/pkg/builtin/#int">int</a>) *<a href="index.html#AddPrincipalAttributes">AddPrincipalAttributes</a></pre>
+				<p>
++needchange(1) forces a password change on the next initial authentication to this principal. -needchange(0) clears this flag.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="AddPrincipalAttributes.SetNoAuthDataRequired">func (*AddPrincipalAttributes) <a href="http://localhost:6060/src/github.com/Mellywins/gokrb5-kdc-wrapper/kadmin/add_princ.go?s=10697:10782#L215">SetNoAuthDataRequired</a>
+					<a class="permalink" href="index.html#AddPrincipalAttributes.SetNoAuthDataRequired">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (apatts *<a href="index.html#AddPrincipalAttributes">AddPrincipalAttributes</a>) SetNoAuthDataRequired() *<a href="index.html#AddPrincipalAttributes">AddPrincipalAttributes</a></pre>
+				<p>
++no_auth_data_required prevents PAC or AD-SIGNEDPATH data from being added to service tickets for the principal.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="AddPrincipalAttributes.SetOkAsDelegate">func (*AddPrincipalAttributes) <a href="http://localhost:6060/src/github.com/Mellywins/gokrb5-kdc-wrapper/kadmin/add_princ.go?s=8912:8996#L173">SetOkAsDelegate</a>
+					<a class="permalink" href="index.html#AddPrincipalAttributes.SetOkAsDelegate">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (apatts *<a href="index.html#AddPrincipalAttributes">AddPrincipalAttributes</a>) SetOkAsDelegate(n <a href="http://localhost:6060/pkg/builtin/#int">int</a>) *<a href="index.html#AddPrincipalAttributes">AddPrincipalAttributes</a></pre>
+				<p>
++ok_as_delegate(1) sets the okay as delegate flag on tickets issued with this principal as the service. Clients may use this flag as a hint that credentials should be delegated when authenticating to the service. -ok_as_delegate(0) clears this flag.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="AddPrincipalAttributes.SetOkToAuthAsDelegate">func (*AddPrincipalAttributes) <a href="http://localhost:6060/src/github.com/Mellywins/gokrb5-kdc-wrapper/kadmin/add_princ.go?s=10440:10525#L209">SetOkToAuthAsDelegate</a>
+					<a class="permalink" href="index.html#AddPrincipalAttributes.SetOkToAuthAsDelegate">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (apatts *<a href="index.html#AddPrincipalAttributes">AddPrincipalAttributes</a>) SetOkToAuthAsDelegate() *<a href="index.html#AddPrincipalAttributes">AddPrincipalAttributes</a></pre>
+				<p>
++ok_to_auth_as_delegate allows this principal to acquire forwardable tickets to itself from arbitrary users, for use with constrained delegation.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="AddPrincipalAttributes.SetPasswordChangingService">func (*AddPrincipalAttributes) <a href="http://localhost:6060/src/github.com/Mellywins/gokrb5-kdc-wrapper/kadmin/add_princ.go?s=10142:10232#L203">SetPasswordChangingService</a>
+					<a class="permalink" href="index.html#AddPrincipalAttributes.SetPasswordChangingService">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (apatts *<a href="index.html#AddPrincipalAttributes">AddPrincipalAttributes</a>) SetPasswordChangingService() *<a href="index.html#AddPrincipalAttributes">AddPrincipalAttributes</a></pre>
+				<p>
++password_changing_service(1) marks this principal as a password change service principal.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="AddPrincipalAttributes.SetPostdated">func (*AddPrincipalAttributes) <a href="http://localhost:6060/src/github.com/Mellywins/gokrb5-kdc-wrapper/kadmin/add_princ.go?s=6478:6559#L131">SetPostdated</a>
+					<a class="permalink" href="index.html#AddPrincipalAttributes.SetPostdated">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (apatts *<a href="index.html#AddPrincipalAttributes">AddPrincipalAttributes</a>) SetPostdated(n <a href="http://localhost:6060/pkg/builtin/#int">int</a>) *<a href="index.html#AddPrincipalAttributes">AddPrincipalAttributes</a></pre>
+				<p>
+-allow_postdated(0) prohibits this principal from obtaining postdated tickets. +allow_postdated(1) clears this flag.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="AddPrincipalAttributes.SetPreAuth">func (*AddPrincipalAttributes) <a href="http://localhost:6060/src/github.com/Mellywins/gokrb5-kdc-wrapper/kadmin/add_princ.go?s=8025:8104#L161">SetPreAuth</a>
+					<a class="permalink" href="index.html#AddPrincipalAttributes.SetPreAuth">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (apatts *<a href="index.html#AddPrincipalAttributes">AddPrincipalAttributes</a>) SetPreAuth(n <a href="http://localhost:6060/pkg/builtin/#int">int</a>) *<a href="index.html#AddPrincipalAttributes">AddPrincipalAttributes</a></pre>
+				<p>
++requires_preauth(1) requires this principal to preauthenticate before being allowed to kinit. -requires_preauth(0) clears this flag. When +requires_preauth is set on a service principal, the KDC will only issue service tickets for that service principal if the client’s initial authentication was performed using preauthentication.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="AddPrincipalAttributes.SetProxiable">func (*AddPrincipalAttributes) <a href="http://localhost:6060/src/github.com/Mellywins/gokrb5-kdc-wrapper/kadmin/add_princ.go?s=7239:7320#L149">SetProxiable</a>
+					<a class="permalink" href="index.html#AddPrincipalAttributes.SetProxiable">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (apatts *<a href="index.html#AddPrincipalAttributes">AddPrincipalAttributes</a>) SetProxiable(n <a href="http://localhost:6060/pkg/builtin/#int">int</a>) *<a href="index.html#AddPrincipalAttributes">AddPrincipalAttributes</a></pre>
+				<p>
+-allow_proxiable(0) prohibits this principal from obtaining proxiable tickets. +allow_proxiable(1) clears this flag.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="AddPrincipalAttributes.SetRenewable">func (*AddPrincipalAttributes) <a href="http://localhost:6060/src/github.com/Mellywins/gokrb5-kdc-wrapper/kadmin/add_princ.go?s=6989:7070#L143">SetRenewable</a>
+					<a class="permalink" href="index.html#AddPrincipalAttributes.SetRenewable">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (apatts *<a href="index.html#AddPrincipalAttributes">AddPrincipalAttributes</a>) SetRenewable(n <a href="http://localhost:6060/pkg/builtin/#int">int</a>) *<a href="index.html#AddPrincipalAttributes">AddPrincipalAttributes</a></pre>
+				<p>
+-allow_renewable(0) prohibits this principal from obtaining renewable tickets. +allow_renewable(1) clears this flag.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="AddPrincipalAttributes.SetSvr">func (*AddPrincipalAttributes) <a href="http://localhost:6060/src/github.com/Mellywins/gokrb5-kdc-wrapper/kadmin/add_princ.go?s=9155:9230#L179">SetSvr</a>
+					<a class="permalink" href="index.html#AddPrincipalAttributes.SetSvr">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (apatts *<a href="index.html#AddPrincipalAttributes">AddPrincipalAttributes</a>) SetSvr(n <a href="http://localhost:6060/pkg/builtin/#int">int</a>) *<a href="index.html#AddPrincipalAttributes">AddPrincipalAttributes</a></pre>
+				<p>
+-allow_svr(0) prohibits the issuance of service tickets for this principal. +allow_svr clears this flag(1).
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="AddPrincipalAttributes.SetTgsReq">func (*AddPrincipalAttributes) <a href="http://localhost:6060/src/github.com/Mellywins/gokrb5-kdc-wrapper/kadmin/add_princ.go?s=9443:9521#L185">SetTgsReq</a>
+					<a class="permalink" href="index.html#AddPrincipalAttributes.SetTgsReq">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (apatts *<a href="index.html#AddPrincipalAttributes">AddPrincipalAttributes</a>) SetTgsReq(n <a href="http://localhost:6060/pkg/builtin/#int">int</a>) *<a href="index.html#AddPrincipalAttributes">AddPrincipalAttributes</a></pre>
+				<p>
+-allow_tgs_req(0) specifies that a Ticket-Granting Service (TGS) request for a service ticket for this principal is not permitted. +allow_tgs_req(1) clears this flag.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="AddPrincipalAttributes.SetTix">func (*AddPrincipalAttributes) <a href="http://localhost:6060/src/github.com/Mellywins/gokrb5-kdc-wrapper/kadmin/add_princ.go?s=9674:9749#L191">SetTix</a>
+					<a class="permalink" href="index.html#AddPrincipalAttributes.SetTix">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (apatts *<a href="index.html#AddPrincipalAttributes">AddPrincipalAttributes</a>) SetTix(n <a href="http://localhost:6060/pkg/builtin/#int">int</a>) *<a href="index.html#AddPrincipalAttributes">AddPrincipalAttributes</a></pre>
+				<p>
+-allow_tix(0) forbids the issuance of any tickets for this principal. +allow_tix (1) clears this flag.
+</p>
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="AddPrincipalType">type <a href="http://localhost:6060/src/github.com/Mellywins/gokrb5-kdc-wrapper/kadmin/add_princ.go?s=109:1178#L4">AddPrincipalType</a>
+				<a class="permalink" href="index.html#AddPrincipalType">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type AddPrincipalType struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="AddPrincipal">func <a href="http://localhost:6060/src/github.com/Mellywins/gokrb5-kdc-wrapper/kadmin/add_princ.go?s=4318:4382#L48">AddPrincipal</a>
+					<a class="permalink" href="index.html#AddPrincipal">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func AddPrincipal(atts <a href="index.html#AddPrincipalAttributes">AddPrincipalAttributes</a>) *<a href="index.html#AddPrincipalType">AddPrincipalType</a></pre>
+				<p>
+Instantiate a new Add_Principal command runner.
+Not setting a flag to a value of your chooseing implies that the KDC command will use its default value.
+</p>
+
+				
+				
+			
+
+			
+				
+				<h3 id="AddPrincipalType.Exec">func (*AddPrincipalType) <a href="http://localhost:6060/src/github.com/Mellywins/gokrb5-kdc-wrapper/kadmin/add_princ.go?s=4769:4814#L69">Exec</a>
+					<a class="permalink" href="index.html#AddPrincipalType.Exec">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (apt *<a href="index.html#AddPrincipalType">AddPrincipalType</a>) Exec() *<a href="http://localhost:6060/pkg/os/exec/">exec</a>.<a href="http://localhost:6060/pkg/os/exec/#Cmd">Cmd</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="AddPrincipalType.ParseCommand">func (*AddPrincipalType) <a href="http://localhost:6060/src/github.com/Mellywins/gokrb5-kdc-wrapper/kadmin/add_princ.go?s=4660:4721#L65">ParseCommand</a>
+					<a class="permalink" href="index.html#AddPrincipalType.ParseCommand">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (apt *<a href="index.html#AddPrincipalType">AddPrincipalType</a>) ParseCommand() *<a href="index.html#AddPrincipalType">AddPrincipalType</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="AddPrincipalType.WithAttributes">func (*AddPrincipalType) <a href="http://localhost:6060/src/github.com/Mellywins/gokrb5-kdc-wrapper/kadmin/add_princ.go?s=4877:4967#L74">WithAttributes</a>
+					<a class="permalink" href="index.html#AddPrincipalType.WithAttributes">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (apt *<a href="index.html#AddPrincipalType">AddPrincipalType</a>) WithAttributes(atts <a href="index.html#AddPrincipalAttributes">AddPrincipalAttributes</a>) *<a href="index.html#AddPrincipalType">AddPrincipalType</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="AddPrincipalType.WithClearPolicy">func (*AddPrincipalType) <a href="http://localhost:6060/src/github.com/Mellywins/gokrb5-kdc-wrapper/kadmin/add_princ.go?s=5951:6015#L112">WithClearPolicy</a>
+					<a class="permalink" href="index.html#AddPrincipalType.WithClearPolicy">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (apt *<a href="index.html#AddPrincipalType">AddPrincipalType</a>) WithClearPolicy() *<a href="index.html#AddPrincipalType">AddPrincipalType</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="AddPrincipalType.WithExpDate">func (*AddPrincipalType) <a href="http://localhost:6060/src/github.com/Mellywins/gokrb5-kdc-wrapper/kadmin/add_princ.go?s=5007:5078#L78">WithExpDate</a>
+					<a class="permalink" href="index.html#AddPrincipalType.WithExpDate">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (apt *<a href="index.html#AddPrincipalType">AddPrincipalType</a>) WithExpDate(date <a href="http://localhost:6060/pkg/builtin/#string">string</a>) *<a href="index.html#AddPrincipalType">AddPrincipalType</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="AddPrincipalType.WithKvno">func (*AddPrincipalType) <a href="http://localhost:6060/src/github.com/Mellywins/gokrb5-kdc-wrapper/kadmin/add_princ.go?s=5227:5292#L86">WithKvno</a>
+					<a class="permalink" href="index.html#AddPrincipalType.WithKvno">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (apt *<a href="index.html#AddPrincipalType">AddPrincipalType</a>) WithKvno(kvno <a href="http://localhost:6060/pkg/builtin/#int">int</a>) *<a href="index.html#AddPrincipalType">AddPrincipalType</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="AddPrincipalType.WithMaxLife">func (*AddPrincipalType) <a href="http://localhost:6060/src/github.com/Mellywins/gokrb5-kdc-wrapper/kadmin/add_princ.go?s=5825:5905#L108">WithMaxLife</a>
+					<a class="permalink" href="index.html#AddPrincipalType.WithMaxLife">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (apt *<a href="index.html#AddPrincipalType">AddPrincipalType</a>) WithMaxLife(max_life_date <a href="http://localhost:6060/pkg/builtin/#string">string</a>) *<a href="index.html#AddPrincipalType">AddPrincipalType</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="AddPrincipalType.WithNoKey">func (*AddPrincipalType) <a href="http://localhost:6060/src/github.com/Mellywins/gokrb5-kdc-wrapper/kadmin/add_princ.go?s=5629:5687#L101">WithNoKey</a>
+					<a class="permalink" href="index.html#AddPrincipalType.WithNoKey">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (apt *<a href="index.html#AddPrincipalType">AddPrincipalType</a>) WithNoKey() *<a href="index.html#AddPrincipalType">AddPrincipalType</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="AddPrincipalType.WithPassword">func (*AddPrincipalType) <a href="http://localhost:6060/src/github.com/Mellywins/gokrb5-kdc-wrapper/kadmin/add_princ.go?s=6053:6123#L116">WithPassword</a>
+					<a class="permalink" href="index.html#AddPrincipalType.WithPassword">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (apt *<a href="index.html#AddPrincipalType">AddPrincipalType</a>) WithPassword(pw <a href="http://localhost:6060/pkg/builtin/#string">string</a>) *<a href="index.html#AddPrincipalType">AddPrincipalType</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="AddPrincipalType.WithPolicy">func (*AddPrincipalType) <a href="http://localhost:6060/src/github.com/Mellywins/gokrb5-kdc-wrapper/kadmin/add_princ.go?s=5326:5398#L90">WithPolicy</a>
+					<a class="permalink" href="index.html#AddPrincipalType.WithPolicy">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (apt *<a href="index.html#AddPrincipalType">AddPrincipalType</a>) WithPolicy(policy <a href="http://localhost:6060/pkg/builtin/#string">string</a>) *<a href="index.html#AddPrincipalType">AddPrincipalType</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="AddPrincipalType.WithPrincipal">func (*AddPrincipalType) <a href="http://localhost:6060/src/github.com/Mellywins/gokrb5-kdc-wrapper/kadmin/add_princ.go?s=6159:6232#L120">WithPrincipal</a>
+					<a class="permalink" href="index.html#AddPrincipalType.WithPrincipal">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (apt *<a href="index.html#AddPrincipalType">AddPrincipalType</a>) WithPrincipal(name <a href="http://localhost:6060/pkg/builtin/#string">string</a>) *<a href="index.html#AddPrincipalType">AddPrincipalType</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="AddPrincipalType.WithPwExpDate">func (*AddPrincipalType) <a href="http://localhost:6060/src/github.com/Mellywins/gokrb5-kdc-wrapper/kadmin/add_princ.go?s=5115:5188#L82">WithPwExpDate</a>
+					<a class="permalink" href="index.html#AddPrincipalType.WithPwExpDate">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (apt *<a href="index.html#AddPrincipalType">AddPrincipalType</a>) WithPwExpDate(date <a href="http://localhost:6060/pkg/builtin/#string">string</a>) *<a href="index.html#AddPrincipalType">AddPrincipalType</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="AddPrincipalType.WithRandKey">func (*AddPrincipalType) <a href="http://localhost:6060/src/github.com/Mellywins/gokrb5-kdc-wrapper/kadmin/add_princ.go?s=5436:5496#L94">WithRandKey</a>
+					<a class="permalink" href="index.html#AddPrincipalType.WithRandKey">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (apt *<a href="index.html#AddPrincipalType">AddPrincipalType</a>) WithRandKey() *<a href="index.html#AddPrincipalType">AddPrincipalType</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Executable">type <a href="http://localhost:6060/src/github.com/Mellywins/gokrb5-kdc-wrapper/kadmin/add_princ.go?s=54:107#L1">Executable</a>
+				<a class="permalink" href="index.html#Executable">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Executable interface {
+    ParseCommand()
+    Exec()
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="KtadminExecutorSpec">type <a href="http://localhost:6060/src/github.com/Mellywins/gokrb5-kdc-wrapper/kadmin/ktadmin.go?s=17:64#L1">KtadminExecutorSpec</a>
+				<a class="permalink" href="index.html#KtadminExecutorSpec">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type KtadminExecutorSpec struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="KtadminExecutorSpec.UseLocal">func (*KtadminExecutorSpec) <a href="http://localhost:6060/src/github.com/Mellywins/gokrb5-kdc-wrapper/kadmin/ktadmin.go?s=66:107#L1">UseLocal</a>
+					<a class="permalink" href="index.html#KtadminExecutorSpec.UseLocal">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (ex *<a href="index.html#KtadminExecutorSpec">KtadminExecutorSpec</a>) UseLocal()</pre>
+				
+				
+				
+				
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.17.8.<br>
+Except as <a href="https://developers.google.com/site-policies#restrictions">noted</a>,
+the content of this page is licensed under the
+Creative Commons Attribution 3.0 License,
+and code is licensed under a <a href="http://localhost:6060/LICENSE">BSD license</a>.<br>
+<a href="https://golang.org/doc/tos.html">Terms of Service</a> |
+<a href="https://www.google.com/intl/en/policies/privacy/">Privacy Policy</a>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>
