@@ -8,7 +8,7 @@ func main() {
 	// status, err := internal.EnsureServiceIsRunning()
 	// fmt.Printf("Is service running: %v, status is : %s", err, status)
 
-	atts := kadmin.CreateAddPrincipalAttributes().SetDupKey(0)
+	atts := kadmin.CreateAddPrincipalAttributes().SetDupKey(0).SetForwardable(1).SetNeedChange(1).SetOkToAuthAsDelegate()
 	kadmin.AddPrincipal(*atts).
 		WithPrincipal("Mellywins").
 		WithExpDate("10 hours").
