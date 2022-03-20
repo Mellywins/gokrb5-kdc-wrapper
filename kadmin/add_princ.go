@@ -103,6 +103,13 @@ func (aptt *AddPrincipalAttributes) appendFlag(n int, flag string) {
 	aptt.CommandString += " " + IntToSymbolMap[n] + flag + " "
 }
 
+func (apt *AddPrincipalType) appendFlag(value interface{}, flag string) {
+	if str, ok := value.(string); ok {
+		apt.CommandString += " -" + flag + " " + str
+	} else {
+		apt.CommandString += " -" + flag + " " + fmt.Sprint(value.(int))
+	}
+}
 func (aptt *AddPrincipalType) SetVerbosity(b bool) *AddPrincipalType {
 	aptt.verbose = b
 	return aptt
@@ -112,7 +119,7 @@ func (aptt *AddPrincipalType) SetVerbosity(b bool) *AddPrincipalType {
 
 func (apt *AddPrincipalType) WithExpDate(date string) *AddPrincipalType {
 	apt.expdate = date
-	apt.CommandString += " -expire " + date
+	apt.appendFlag(date, "expire")
 	return apt
 }
 
@@ -120,7 +127,7 @@ func (apt *AddPrincipalType) WithExpDate(date string) *AddPrincipalType {
 
 func (apt *AddPrincipalType) WithPwExpDate(date string) *AddPrincipalType {
 	apt.pwexpdate = date
-	apt.CommandString += " -pwexpire " + date
+	apt.appendFlag(date, "pwexpire")
 	return apt
 }
 
@@ -128,14 +135,15 @@ func (apt *AddPrincipalType) WithPwExpDate(date string) *AddPrincipalType {
 
 func (apt *AddPrincipalType) WithKvno(kvno int) *AddPrincipalType {
 	apt.kvno = kvno
-	apt.CommandString += " -kvno " + fmt.Sprint(kvno)
+	apt.appendFlag(kvno, "kvno")
+
 	return apt
 }
 
 // The password policy used by this principal. If not specified, the policy default is used if it exists (unless -clearpolicy is specified).
 func (apt *AddPrincipalType) WithPolicy(policy string) *AddPrincipalType {
 	apt.policy = policy
-	apt.CommandString += " -policy " + policy
+	apt.appendFlag(policy, "policy")
 	return apt
 }
 
@@ -162,7 +170,7 @@ func (apt *AddPrincipalType) WithNoKey() *AddPrincipalType {
 
 func (apt *AddPrincipalType) WithMaxLife(max_life_date string) *AddPrincipalType {
 	apt.maxlife = max_life_date
-	apt.CommandString += " -maxrenewlife " + max_life_date
+	apt.appendFlag(max_life_date, "maxrenewlife")
 	return apt
 }
 
@@ -177,7 +185,7 @@ func (apt *AddPrincipalType) WithClearPolicy() *AddPrincipalType {
 // Sets the password of the principal to the specified string and does not prompt for a password. Note: using this option in a shell script may expose the password to other users on the system via the process list.
 func (apt *AddPrincipalType) WithPassword(pw string) *AddPrincipalType {
 	apt.password = pw
-	apt.CommandString += " -pw " + pw
+	apt.appendFlag(pw, "pw")
 	return apt
 }
 func (apt *AddPrincipalType) WithPrincipal(name string) *AddPrincipalType {

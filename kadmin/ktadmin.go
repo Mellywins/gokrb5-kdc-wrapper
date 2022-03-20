@@ -1,9 +1,18 @@
 package ktadmin
 
 type KtadminExecutorSpec struct {
-	local bool   // kadmin.local [-r realm] [-p principal] [-q query] [-d dbname] [-e enc:salt ...] [-m] [-x db_args]. Enabling this is the same as using kadmin.local instead of kadmin
-	realm string // Use realm as the default database realm.
-
+	local                bool
+	realm                string
+	principal            string
+	keytab               string
+	credentials_cache    string
+	password             string
+	query                string
+	dbname               string
+	admin_server         string // admin_server[:port]
+	salt                 string // TODO
+	AUTH_GSSAPI          bool
+	AUTH_GSSAPI_FALLBACK bool
 }
 
 func (ex *KtadminExecutorSpec) UseLocal() {

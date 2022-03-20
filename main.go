@@ -12,6 +12,7 @@ func main() {
 	kadmin.AddPrincipal(*atts).
 		WithPrincipal("Mellywins").
 		WithExpDate("10 hours").
+		WithPwExpDate("5 days").
 		WithKvno(0).
 		WithPassword("#!a2==!QsfK").
 		WithClearPolicy().
