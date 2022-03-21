@@ -10,7 +10,7 @@ import (
 
 type ExecutorSpec struct {
 	Local              bool
-	Realm              string
+	Realm              string // Defaults to the KDC server default realm.
 	Principal          string
 	UseKeytab          bool
 	keytab             string

@@ -10,6 +10,13 @@ Included commands are:
 
 ![Image](assets/work-example.png)
 </div>
+> Running the code above yields: 
+
+```shell
+Execution result: Authenticating as principal root/admin@INSAT.TN with password.
+Principal "Mellywins@INSAT.TN" created.
+
+```
 
 ## Functionalities
 | ktutil | kadmin |
