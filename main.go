@@ -1,15 +1,17 @@
 package main
 
 import (
+	"fmt"
 	"github.com/Mellywins/gokrb5-kdc-wrapper/kadmin"
 )
 
 func main() {
-	// status, err := internal.EnsureServiceIsRunning()
-	// fmt.Printf("Is service running: %v, status is : %s", err, status)
-
-	atts := kadmin.CreateAddPrincipalAttributes().SetDupKey(0).SetForwardable(1).SetNeedChange(1).SetOkToAuthAsDelegate()
-	kadmin.AddPrincipal(*atts).
+	atts := kadmin.CreateAddPrincipalAttributes().
+		SetDupKey(0).
+		SetForwardable(1).
+		SetNeedChange(1).
+		SetOkToAuthAsDelegate()
+	addP := kadmin.AddPrincipal(*atts).
 		WithPrincipal("Mellywins").
 		WithExpDate("10 hours").
 		WithPwExpDate("5 days").
@@ -17,4 +19,9 @@ func main() {
 		WithPassword("#!a2==!QsfK").
 		WithClearPolicy().
 		ParseCommand()
+	kadmExecutor, err := kadmin.NewExecutorSpecBuilder().Local(true).MakeVerbose(true).Build()
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(kadmExecutor.Execute(addP))
 }

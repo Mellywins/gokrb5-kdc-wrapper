@@ -3,7 +3,7 @@ package kadmin
 import (
 	"fmt"
 	"log"
-	"os/exec"
+	"strings"
 )
 
 type Executable interface {
@@ -87,13 +87,11 @@ func AddPrincipal(atts AddPrincipalAttributes) *AddPrincipalType {
 
 func (apt *AddPrincipalType) ParseCommand() *AddPrincipalType {
 	apt.CommandString += apt.attributes.CommandString
-	fmt.Printf("Parsed Command: kadmin.local add_principal %s %s ", apt.CommandString, apt.principal)
 	return apt
 }
-func (apt *AddPrincipalType) Exec() *exec.Cmd {
+func (apt *AddPrincipalType) Exec() string {
+	return fmt.Sprintf("add_principal %s %s ", apt.CommandString, apt.principal)
 
-	fmt.Println("Execution ...")
-	return exec.Command("ls")
 }
 func (apt *AddPrincipalType) WithAttributes(atts AddPrincipalAttributes) *AddPrincipalType {
 	apt.attributes = atts
@@ -103,9 +101,16 @@ func (aptt *AddPrincipalAttributes) appendFlag(n int, flag string) {
 	aptt.CommandString += " " + IntToSymbolMap[n] + flag + " "
 }
 
+func sanitizeFlagValue(val string) string {
+	if strings.Contains(val, " ") {
+		quotedStr := "\"" + val + "\""
+		return quotedStr
+	}
+	return val
+}
 func (apt *AddPrincipalType) appendFlag(value interface{}, flag string) {
 	if str, ok := value.(string); ok {
-		apt.CommandString += " -" + flag + " " + str
+		apt.CommandString += " -" + flag + " " + sanitizeFlagValue(str)
 	} else {
 		apt.CommandString += " -" + flag + " " + fmt.Sprint(value.(int))
 	}
