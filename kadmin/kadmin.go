@@ -3,6 +3,7 @@ package kadmin
 import (
 	"bytes"
 	"fmt"
+	"github.com/Mellywins/gokrb5-kdc-wrapper/internal/utils"
 	"os/exec"
 
 	"github.com/Mellywins/gokrb5-kdc-wrapper/internal/types"
@@ -23,6 +24,7 @@ type ExecutorSpec struct {
 	AuthGssapi         bool
 	AuthGssapiFallback bool
 	Verbose            bool
+	commandString      string
 }
 
 func (ex *ExecutorSpec) NewKadminExecutor() *ExecutorSpec {
@@ -75,21 +77,28 @@ func (b *ExecutorSpecBuilder) Local(local bool) *ExecutorSpecBuilder {
 
 func (b *ExecutorSpecBuilder) Realm(realm string) *ExecutorSpecBuilder {
 	b.executorSpec.Realm = realm
+	b.executorSpec.commandString += utils.AppendGenericFlag("-r", realm)
 	return b
 }
 
 func (b *ExecutorSpecBuilder) Principal(principal string) *ExecutorSpecBuilder {
 	b.executorSpec.Principal = principal
+	b.executorSpec.commandString += utils.AppendGenericFlag("-p", principal)
 	return b
 }
 
 func (b *ExecutorSpecBuilder) UseKeytab(useKeytab bool) *ExecutorSpecBuilder {
 	b.executorSpec.UseKeytab = useKeytab
+	b.executorSpec.commandString += utils.AppendValuelessFlag("-k")
 	return b
 }
 
 func (b *ExecutorSpecBuilder) keytab(keytab string) *ExecutorSpecBuilder {
+	if !b.executorSpec.UseKeytab {
+		panic(fmt.Errorf("cant specificy keytab path without previously specifying UseKeytab"))
+	}
 	b.executorSpec.keytab = keytab
+	b.executorSpec.commandString += utils.AppendGenericFlag("-t", keytab)
 	return b
 }
 
@@ -140,6 +149,13 @@ func (b *ExecutorSpecBuilder) Build() (*ExecutorSpec, error) {
 
 // Execute Accepts a type of interface Query. It will then formulate the shell script that will be run on the KDC and run it.
 func (b *ExecutorSpec) Execute(command types.Query) *exec.Cmd {
+	var baseCmd string
+	if b.Local == true {
+		baseCmd = "kadmin.local"
+	} else {
+		baseCmd = "kadmin"
+	}
+	fmt.Println(baseCmd)
 	commandString := fmt.Sprintf("%s %s", "kadmin.local -q ", command.Exec())
 	if b.Verbose {
 		fmt.Println(commandString)
